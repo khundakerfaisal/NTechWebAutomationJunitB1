@@ -11,12 +11,12 @@ public class ElementSelector {
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver = new ChromeDriver();
 //        driver.get("https://demoqa.com/text-box"); //Find css Locator url
-//        driver.get("https://demoqa.com/text-box"); //find id locator
-//        driver.get("https://www.saucedemo.com/"); //find name locator
-//        driver.get("https://demoqa.com/links"); //link  locator
-//        driver.get("https://demoqa.com/webtables"); //css selector  locator
-//        driver.get("https://demoqa.com/elements"); //Absolute/relative xpath  locator
-        driver.get("https://demoqa.com/text-box"); //relative xpath  locator
+//        driver.get("https://demoqa.com/text-box"); //find id locator url
+//        driver.get("https://www.saucedemo.com/"); //find name locator url
+//        driver.get("https://demoqa.com/links"); //link  locator url
+//        driver.get("https://demoqa.com/webtables"); //css selector  locator url
+//        driver.get("https://demoqa.com/elements"); //Absolute/relative xpath  locator url
+        driver.get("https://demoqa.com/text-box"); //relative xpath  locator url
 
         driver.manage().window().maximize();
         Thread.sleep(4000);
