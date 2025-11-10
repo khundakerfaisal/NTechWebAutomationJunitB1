@@ -1,4 +1,4 @@
-package ReviewClass;
+package ReviewClass2;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -11,23 +11,23 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.List;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class checkboxHandle {
+public class CheckBoxHandle {
     @Test
     public void checkboxSelect() throws InterruptedException {
         WebDriver driver=new ChromeDriver();
         driver.get("https://demoqa.com/checkbox");
         driver.manage().window().maximize();
-        List<WebElement> checkboxClick=driver.findElements(By.cssSelector(".rct-checkbox"));
-        checkboxClick.get(0).click();
+
+        List<WebElement> checkBoxSelect=driver.findElements(By.cssSelector(".rct-checkbox"));
+        checkBoxSelect.get(0).click();
         Thread.sleep(4000);
 
-        //Assertion Part start
-        WebElement checkTest=driver.findElement(By.xpath("//div/span[text()='You have selected :']"));
-        String ActualResult=checkTest.getText();
-        String ExpectedResult="You have selected :";
+        //Test Assertion Part
+        WebElement checkText=driver.findElement(By.xpath("//div/span[text()='You have selected :']"));
+        String ActualResult=checkText.getText();
+        String ExpectedResult="You have selected :11";
         Assertions.assertEquals(ExpectedResult,ActualResult);
-        Thread.sleep(4000);
-        //Assertion Part close
-        driver.quit();
+        Thread.sleep(2000);
+
     }
 }

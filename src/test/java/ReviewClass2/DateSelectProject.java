@@ -1,4 +1,4 @@
-package ReviewClass;
+package ReviewClass2;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -13,24 +13,21 @@ import java.time.LocalDate;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class DateSelectProject {
     @Test
-    public void selectDate() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+    public void dateSelect() throws InterruptedException {
+        WebDriver driver=new ChromeDriver();
         //Windows scrolling
         driver.get("https://demoqa.com/date-picker");
         driver.manage().window().maximize();
+
         WebElement inputDate=driver.findElement(By.id("datePickerMonthYearInput"));
         inputDate.sendKeys(Keys.CONTROL+"a");
         inputDate.sendKeys(Keys.BACK_SPACE);
+        Thread.sleep(2000);
 
-        //Current date selection
         LocalDate date=LocalDate.now();
         inputDate.sendKeys(date.toString());
         inputDate.sendKeys(Keys.ENTER);
-        Thread.sleep(3000);
-
-
+        Thread.sleep(2000);
 
     }
-
-
 }

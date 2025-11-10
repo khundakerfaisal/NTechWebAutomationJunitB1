@@ -1,4 +1,4 @@
-package ReviewClass;
+package ReviewClass2;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -8,10 +8,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import java.util.List;
+
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class ButtonHandleProject {
+public class buttonHandle {
     @Test
-    public void buttonHandle() throws InterruptedException {
+    public void buttonSelection() throws InterruptedException {
         WebDriver driver=new ChromeDriver();
         driver.get("https://demoqa.com/buttons");
         driver.manage().window().maximize();
@@ -21,16 +23,20 @@ public class ButtonHandleProject {
         Actions actions=new Actions(driver);
         WebElement doubleClickButton=driver.findElement(By.id("doubleClickBtn"));
         actions.doubleClick(doubleClickButton).perform();
+        Thread.sleep(2000);
 
         //Right click
         WebElement rightClickButton=driver.findElement(By.id("rightClickBtn"));
         actions.contextClick(rightClickButton).perform();
+        Thread.sleep(2000);
 
-        // click me
-        WebElement ClickButton=driver.findElement(By.id("vSkXX"));
-        actions.click(ClickButton).perform();
+        //dynamic click
+        List<WebElement> clickButton=driver.findElements(By.cssSelector(".btn-primary"));
+        actions.click(clickButton.get(2)).perform();
+        Thread.sleep(2000);
 
 
+        driver.quit();
 
     }
 }

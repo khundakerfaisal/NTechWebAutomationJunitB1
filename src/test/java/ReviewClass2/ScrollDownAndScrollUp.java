@@ -1,16 +1,13 @@
-package ReviewClass;
+package ReviewClass2;
 
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class ScrollDownAndScrollUp {
-
     public WebDriver driver;
 
     @BeforeAll
@@ -39,16 +36,11 @@ public class ScrollDownAndScrollUp {
         js.executeScript("window.scrollBy(0,800)"); //Scroll down
         Thread.sleep(1000);
         js.executeScript("window.scrollTo(0,0)"); //scroll up
-        WebElement currentAddress=driver.findElement(By.id("currentAddress"));
-        js.executeScript("arguments[0].scrollIntoView(true)",currentAddress);
         Thread.sleep(1000);
     }
-
 
     @AfterAll
     public void closeBrowser() {
         driver.quit();
     }
-
-
 }
