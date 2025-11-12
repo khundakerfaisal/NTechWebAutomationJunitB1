@@ -12,9 +12,13 @@ public class ModalHandle {
         WebDriver driver=new ChromeDriver();
         driver.get("https://demoqa.com/modal-dialogs");
         driver.manage().window().maximize();
-        WebElement handleLargeModal=driver.findElement(By.id("showLargeModal"));
+        WebElement handleLargeModal=driver.findElement(By.id("showSmallModal"));
         handleLargeModal.click();
-        Thread.sleep(500);
+        Thread.sleep(1000);
+        WebElement closeModal=driver.findElement(By.id("closeSmallModal"));
+        closeModal.click();
+        Thread.sleep(3000);
+
 
     }
 }
