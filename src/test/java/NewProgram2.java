@@ -1,11 +1,10 @@
 
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -53,6 +52,51 @@ public class NewProgram2 {
         Thread.sleep(2000);
 
         System.out.println("Checkbox test completed!");
+
+    }
+    @Order(3)
+    @Test
+    public void selectDate() throws InterruptedException {
+
+        driver.get("https://demoqa.com/date-picker");
+
+        Thread.sleep(2000);
+
+        WebElement selectDate = driver.findElement(By.id("datePickerMonthYearInput"));
+        selectDate.sendKeys(Keys.CONTROL+"a");
+        selectDate.sendKeys(Keys.BACK_SPACE);
+
+        Thread.sleep(2000);
+        LocalDate date=LocalDate.now();
+        selectDate.sendKeys(date.toString());
+        Thread.sleep(2000);
+
+        System.out.println("Checkbox test completed!");
+
+    }
+    @Order(4)
+    @Test
+    public void buttonClick() throws InterruptedException {
+
+        driver=new ChromeDriver();
+        driver.get("https://demoqa.com/buttons");
+        driver.manage().window().maximize();
+        Thread.sleep(2000);
+
+        Actions actions=new Actions(driver);
+
+
+        List<WebElement> doubleClick = driver.findElements(By.cssSelector(".btn-primary"));
+
+        actions.doubleClick(doubleClick.get(1)).perform();
+        List<WebElement> RightClickButton=driver.findElements(By.cssSelector("button"));
+        actions.contextClick(RightClickButton.get(2)).perform();
+        Thread.sleep(500);
+        List<WebElement> clickButton=driver.findElements(By.cssSelector("button"));
+        actions.click(clickButton.get(3)).perform();
+
+        Thread.sleep(2000);
+
 
     }
 
