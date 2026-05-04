@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
+
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class NewProgram2 {
@@ -45,8 +47,8 @@ public class NewProgram2 {
         Thread.sleep(1000);
 
 
-        WebElement homeCheckbox = driver.findElement(By.cssSelector(".rct-checkbox"));
-        homeCheckbox.click();
+        List<WebElement> homeCheckbox = driver.findElements(By.cssSelector(".rc-tree-checkbox"));
+        homeCheckbox.get(0).click();
 
         Thread.sleep(2000);
 
