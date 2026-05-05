@@ -1,3 +1,4 @@
+package Reviewclass3;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
@@ -9,7 +10,7 @@ import java.util.List;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class NewProgram2 {
+public class scrollAndCheckBoxProgram {
     WebDriver driver;
 
     @BeforeAll
